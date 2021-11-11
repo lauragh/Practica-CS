@@ -1,0 +1,91 @@
+<header>
+    <p style="float:right; margin-bottom: 20px"><a href="/login">Volver al login</a></p>
+</header>
+<div id="inicio" class="col-md-8 offset-md-2" style="min-width: 570px;">
+    <div class="card">
+        <div class="card-header" style="text-align: center;">
+            <h1 style="word-spacing: 20px;";>Registro</h1>
+        </div>
+        <div class="card-body"  style="margin-left: 12%;">
+            <form id="form2" action="/new-user" method="POST">
+                <!-- Nombre -->
+                <div class="field">
+                    <label for="name" class="label">Nombre de usuario</label>
+                    <input type="text" name="name" class="input" placeholder="Nombre">
+                </div>
+                <!-- Correo -->
+                <div class="field">
+                    <label for="email" class="label">Correo</label>
+                    <input type="email" name="email" class="input" placeholder="Ej: miCorreo@gmail.com">
+                </div>
+                <p style="width: 100%; margin-top: 0.25rem; font-size: 80%; color: #e74c3c;" id="errEmail"> </p>
+                <!-- Contraseña -->
+                <div class="field" style="margin-bottom: 5px;">
+                    {{!-- <p style="font-size:15px; color:red" id="errLength"> </p> --}}
+
+                    <label for="pass" class="label">Contraseña</label>
+                    <input type="password" name="pass" class="input" id="pass" onkeyup="validatePass();" placeholder="Contraseña">
+                    <span class="icon-eye-off" onclick="verContra(this, document.getElementById('pass'))"></span>
+                </div>
+                    <div class="field" style="margin-top: 0px; width: 65%; float: right;">
+                    <input type="password" name="repitepass" id="repitepass" class="input" style="margin-left: 0px" placeholder="Repita la contraseña">
+                    <span class="icon-eye-off" onclick="verContra(this, document.getElementById('repitepass'))"></span>
+                </div>
+
+                <div>
+                    <div class="strength">
+                        <span id="bar1" class="bar bar-1"></span>
+                        <span id="bar2" class="bar bar-2"></span>
+                        <span id="bar3" class="bar bar-3"></span>
+                        <span id="bar4" class="bar bar-4"></span>
+
+                    </div>
+                    <ul style="font-size: 15px;">
+                        <li><span id="caracteres" class="icon-cancel" ></span>Debe contener al menos 6 carácteres</li>
+                        <li><span id="mayus" class="icon-cancel"></span>Debe contener al menos una letra mayúscula</li>
+                        <li><span id="num" class="icon-cancel"></span></span>Debe contener al menos un número</li>
+                        <li><span id="especial" class="icon-cancel"></span>Debe contener al menos un carácter especial ($ & + , . : ; = ? @ # _)</li>
+                    </ul>
+                </div>
+
+               <!-- Repetir Contraseña -->
+             
+
+                <p style="width: 100%; margin-top: 0.25rem; font-size: 80%; color: #e74c3c;" id="errorMensajeReg"> </p>
+
+                <button class="btn btn-primary btn-block" style=" margin-top:60px; margin-left: auto; margin-right: auto; width: 22%">
+                    Registrarse
+                </button>
+            </form>
+        </div>
+        <div class="card-footer">
+        
+        </div>
+    </div>
+</div>
+
+
+ {{#if errMensaje}}
+    <script>
+        errMensaje("errorMensajeReg","Error al registrarse, el email ya existe");
+    </script>
+{{/if}}
+
+
+ {{#if errMensaje2}}
+    <script>
+        errMensaje("errorMensajeReg","Error al registrarse, alguno de los campos está vacío");
+    </script>
+{{/if}}
+
+ {{#if contraErr}}
+    <script>
+        errMensaje("errorMensajeReg", "Error al registrarse, las contraseñas no coinciden");
+    </script>
+{{/if}}
+
+ {{#if emailErr}}
+    <script>
+        errMensaje("errEmail", "Formato de email no válido");
+    </script>
+{{/if}}

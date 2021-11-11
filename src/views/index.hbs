@@ -1,0 +1,43 @@
+<header>
+    <p style="float:right; margin-bottom: 20px"><a href="/login">Salir</a></p>
+</header>
+<div id="inicio" class="col-md-8 offset-md-2" style="min-width: 570px;">
+    <div class="card">
+        <div class="card-header" style="text-align: center;">
+            <h1 style="word-spacing: 20px;";>ARCHIVOS</h1>
+        </div>
+        <div class="card-body">
+            {{!-- <div style="text-align: right; margin-right: 10%"><h3> Descargar </h3></div> --}}
+            {{#if objects}}
+            <ul class="list-group ">
+                {{#each objects}}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>Nombre: {{nombre}}</div>
+                    <div>
+                        <button class="btn btn-info" onclick="shareModal('{{@key}}');">Compartir</button>
+                        <a href="/delete-object/{{@key}}" class="btn btn-danger">Borrar</a>
+                        <button class="btn btn-success" onclick="mensajeModal('{{@key}}', '{{nombre}}');">Descargar</button>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+            {{else}}
+            <p>No hay archivos subidos.</p>
+            {{/if}}
+            
+        </div>
+        <div class="card-footer">
+            <form action="/new-encrypted-file" method="POST" encType="multipart/form-data">
+               
+                <div style="margin-top:10px" class="form-group">
+                    <input  type="file" id="archivo" name="archivo" placeholder="" class="form-control">
+                </div>
+
+                <button class="btn btn-primary btn-block" style="margin-left: auto; margin-right: auto; width: 20%">
+                    Subir
+                </button>
+                
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div id="inicio" class="col-md-8 offset-md-2" style="min-width: 570px;">
+    <div class="card">
+        <div class="card-header" style="text-align: center;">
+            <h1 style="word-spacing: 20px;";>Login</h1>
+        </div>
+        <div class="card-body" style="margin-left: 12%;">
+            <form id="form2" action="/login" method="POST">
+               <!-- Correo -->
+                <div class="field">
+                    <label for="email" class="label">Correo</label>
+                    <input type="email" name="email" class="input" placeholder="">
+                </div>
+                <!-- Contraseña -->
+                <div class="field">
+                    <label for="password" class="label">Contraseña</label>
+                    <input type="password" name="pass" id="pass" class="input" placeholder="">
+                    <span class="icon-eye-off" onclick="verContra(this, document.getElementById('pass'))"></span>
+                </div>
+
+
+                <p style="width: 100%; margin-top: 0.25rem; font-size: 80%; color: #e74c3c;" id="errorMensaje"> </p>
+                <button class="btn btn-primary btn-block" style="margin-left: auto; margin-right: auto; margin-top:60px; width:auto">
+                    Iniciar sesión
+                </button>
+                <p style="text-align: center;"><a href="/registro"> Registrarse</a></p>
+                <!-- 
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" name="recordarme" class="custom-control-input" id="customCheck1" checked="">
+                    <label style="margin-left:5%" class="custom-control-label" for="customCheck1">Recordarme</label>
+                </div>
+                -->
+               
+
+            </form>
+        </div>
+        <div class="card-footer">
+        </div>
+    </div>
+</div>
+
+
+ {{#if showModal}}
+    <script>
+        errMensaje("errorMensaje", "Error en el login, algunos de los campos son incorrectos");
+
+    </script>
+{{/if}}

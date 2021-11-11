@@ -1,0 +1,122 @@
+/* Cambios al css */
+.modal-header{
+    border: none;
+}
+
+.modal{
+    background-color: rgba(194, 190, 190, 0.479);
+}
+
+.modal-dialog{
+    background-color: white;
+}
+
+#form2{
+    --text-color: white ;
+    max-width: 500px;
+}
+
+.field {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    border-bottom: 2px dashed var(--text-color);
+    margin: 4rem auto 1rem;
+    transition: 500ms;
+    flex-direction: row;
+    display: flex;
+}
+
+.field:focus-within {
+    border-color: transparent;
+}
+.field:focus-within::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+.label {
+    color:var(--text-color);
+    font-size: 1.2rem;
+    width: 50%;
+}
+
+.input{
+    outline: none;
+    border: none;
+    overflow: hidden;
+    margin: 0;
+    width: 100%;
+    padding: 0.25rem 0;
+    margin-left: 5%;
+    background: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: border 500ms;
+}
+.input:valid{
+    color: white;
+}
+.input:invalid{
+    color:orangered;
+}
+
+.strength {
+    display: flex;
+    height: 20px;
+    width: 100%;
+}
+
+.bar:last-child {
+    margin-right: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 10px 0;
+    padding: 0;
+    font-size: 0.7rem;
+    text-align: left;
+}
+
+.icon-cancel{
+    color:red;
+}
+
+.icon-check{
+    color:greenyellow;
+}
+
+.bar {
+    margin-right: 5px;
+    height: 100%;
+    width: 25%;
+    transition: box-shadow 500ms;
+    box-shadow: inset 0px 20px #1f1f1f;
+  }
+
+.bar-show {
+    margin-right: 5px;
+    height: 100%;
+    width: 25%;
+    transition: box-shadow 500ms;
+}
+
+/*
+.bar-show {
+    box-shadow: none;
+}
+*/
+
+.bar-1 {
+background: linear-gradient(to right, red, orangered);
+}
+.bar-2 {
+background: linear-gradient(to right, orangered, yellow);
+}
+.bar-3 {
+background: linear-gradient(to right, yellow, yellowgreen);
+}
+.bar-4 {
+background: linear-gradient(to right, yellowgreen, green);
+}
