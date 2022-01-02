@@ -7,4 +7,4 @@ Imágenes de la aplicación:
 <img src="login.PNG" />
 <img src="gestion_archivos.PNG" />
 <img src="descarga.PNG" />
-</br>
+
